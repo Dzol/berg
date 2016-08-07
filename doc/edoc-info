@@ -1,0 +1,4 @@
+%% encoding: UTF-8
+{application,heap}.
+{packages,[]}.
+{modules,[heap]}.
