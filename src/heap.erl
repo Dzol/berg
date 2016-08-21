@@ -37,7 +37,6 @@ zero()       -> {infinity, []}.
 -spec unary(Value :: integer()) -> heap().
 unary(Value)                    -> {Value, []}.
 
-
 %% @doc <b>Predicate</b>: is this the zero value of a heap? It'll fail
 %% for something that does not have the structure of a heap. True if
 %% it is a zero heap. False if the heap has cardinality greater than

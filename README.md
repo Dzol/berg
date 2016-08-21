@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Dzol/heap.svg?branch=master)](https://travis-ci.org/Dzol/heap)
+
 # Heap
 
 A Minimum Heap for Integers in Erlang.
