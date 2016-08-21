@@ -22,7 +22,7 @@
 %% but since Erlang's Dialyzer doesn't permit inductive structures,
 %% let's take the symbol `infinity' to be a value outside of the
 %% permitable integer values.
--opaque heap() :: {infinity | integer(), list()}.
+-opaque heap() :: {Value :: infinity | integer(), Children :: list()}.
 
 
 %% -------------------------------------------------------------------
@@ -30,11 +30,11 @@
 %% -------------------------------------------------------------------
 
 %% @doc The zero value of a heap.
--spec zero() -> heap().
+-spec zero() -> Z :: heap().
 zero()       -> {infinity, []}.
 
 %% @doc Return a unary heap with the given value.
--spec unary(Value :: integer()) -> heap().
+-spec unary(Value :: integer()) -> U :: heap().
 unary(Value)                    -> {Value, []}.
 
 %% @doc <b>Predicate</b>: is this the zero value of a heap? It'll fail
@@ -52,12 +52,14 @@ insert(Y, H) when is_integer(Y)               -> merge(H, unary(Y)).
 
 %% @doc The leading value kept on this heap. Named `peak' in the sense
 %% that it is the value at the <i>peak</i> of the given heap.
--spec peak(H :: heap())                             -> integer().
-peak({Value, C}) when is_integer(Value), is_list(C) -> Value.
+-spec peak(H :: heap())              -> Root :: integer().
+peak({Value, C})
+  when is_integer(Value), is_list(C) -> Value.
 
 %% @doc Extract the smallest value off of the given heap.
--spec extract(H :: heap())                  -> {heap(), integer()}.
-extract({Value, []}) when is_integer(Value) -> {zero(), Value};
+-spec extract(H :: heap()) -> {I :: heap(), Root :: integer()}.
+extract({Value, []})
+  when is_integer(Value)   -> {zero(), Value};
 extract({Value, Children})
   when is_integer(Value), is_list(Children) -> {pair(Children), Value}.
 
