@@ -3,7 +3,8 @@
 %% @author <joseph.yiasemides@erlang-solutions.com>
 %% @doc Test Suite: a <b>Minimum</b> Heap for <b>Integers</b> in
 %% Erlang.
-%% @reference Google "Pairing Heap" or find it in Wikipedia.
+%% @reference Google "Priority Queue" or "Pairing Heap" or find them
+%% on Wikipedia.
 %% @end
 %% ===================================================================
 
@@ -47,7 +48,7 @@ main(_) ->
 
     H = heap:zero(),
     R = draw(100, 256),
-    I = lists:foldl(fun insert/2, H, R),
+    I = lists:foldl(fun heap:insert/2, H, R),
     O = listify(I),
     O = lists:sort(R). %% `listify/1' does indeed perform a sort.
 
@@ -60,16 +61,16 @@ interleave(_) ->
     H0 = heap:zero(),
 
     R0 = draw(20, 256),
-    H1 = lists:foldl(fun insert/2, H0, R0),
+    H1 = lists:foldl(fun heap:insert/2, H0, R0),
 
     R1 = draw(20, 256),
-    H2 = lists:foldl(fun insert/2, H1, R1),
+    H2 = lists:foldl(fun heap:insert/2, H1, R1),
 
     {H3, O0} = listify(H2, 20),
     {O0, O1} = lists:split(20, lists:sort(R0 ++ R1)),
 
     R2 = draw(20, 256),
-    H4 = lists:foldl(fun insert/2, H3, R2),
+    H4 = lists:foldl(fun heap:insert/2, H3, R2),
 
     {H5, O2} = listify(H4, 20),
     {O2, O3} = lists:split(20, lists:sort(O1 ++ R2)),
@@ -80,9 +81,6 @@ interleave(_) ->
 %% -------------------------------------------------------------------
 %% Ancillary
 %% -------------------------------------------------------------------
-
-insert(V, H) ->
-    heap:insert(H, V).
 
 listify(H) ->
     lists:reverse(listify_(H, [])).
