@@ -15,11 +15,11 @@ Point a browser at `doc/index.hmtl`.
 
 ## Interesting Make Targets
 
-Test with `make` and build the documentaion with `make doc`.
+Test with `make` and build the documentation with `make doc`.
 
 ## Exercise:
 
-* Change the data-structure to accomodate arbitrary values.
+* Change the data-structure to accommodate arbitrary values.
 * Change the data-structure to write a procedure called `weight/1`.
 * Write procedures called `listify/1` and `listify/2` (extraction).
 * Write a procedure `heapify/1` (insertion).
