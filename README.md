@@ -9,6 +9,13 @@ A Minimum Heap for Integers in Erlang.
 Google _Priority Queue_ or _Pairing Heap_ or find them on Wikipedia.
 You might be familiar with the heap from **Heap-Sort**, **Dijkstra's**, or **Prim's**.
 
+## Why?
+
+This is a good starting place to learn Erlang from but **not** about Erlang processes.
+This is a pretty involved Erlang program but its domain isn't complicated.
+It involves modules, procedures, lists, and tuples.
+It's has OTP structure with documentation, type specifications, and a test suite.
+
 ## Documentation
 
 Point a browser at `doc/index.hmtl`.
