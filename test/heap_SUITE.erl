@@ -46,6 +46,8 @@ main(_) ->
     %% list. Insert these into a heap. Sort the list. Extract values
     %% from the heap into a list. The two lists are the same.
 
+    ct:comment("Extracting from the heap gives elements in sorted order."),
+
     H = heap:zero(),
     R = draw(100, 256),
     I = lists:foldl(fun heap:insert/2, H, R),
@@ -57,6 +59,8 @@ interleave(_) ->
     %% Follows similar intuition to the above. Testing correctness
     %% when `insert' and `extract' are interleaved. This is at the
     %% heart of the pairing heap's good amortized perfomance.
+
+    ct:comment("Interleaving insertion and extraction gives elements in sorted order."),
 
     H0 = heap:zero(),
 
