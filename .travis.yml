@@ -1,5 +1,10 @@
-language: erlang
+language:
+  - elixir
+
+elixir:
+  - 1.4.2
+
 otp_release:
-  - 18.2.1
+  - 19.2
+
 sudo: false
-script: "make"

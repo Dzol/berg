@@ -1,5 +1,0 @@
-@copyright 2016 Joseph Yiasemides
-@author <joseph.yiasemides@erlang-solutions.com>
-@doc A <b>Minimum</b> Heap for <b>Integers</b> in Erlang.
-@reference Google "Pairing Heap" or find it in Wikipedia.
-@end

@@ -22,7 +22,7 @@
 %% but since Erlang's Dialyzer doesn't permit inductive structures,
 %% let's take the symbol `infinity' to be a value outside of the
 %% permitable integer values.
--opaque heap() :: {Value :: infinity | integer(), Children :: list()}.
+-type heap() :: {Value :: infinity | integer(), Children :: list()}.
 
 
 %% -------------------------------------------------------------------
