@@ -26,6 +26,14 @@ defmodule HeapProperty do
     end
   end
 
+  property "heap has as same elements as its input" do
+    forall x <- list(integer()) do
+      implies x != [] do
+        assert Enum.all?(listify(heapify(x)), &Enum.member?(x, &1))
+      end
+    end
+  end
+
   ## Ancillary
 
   defp heapify(x), do: heapify(x, Heap.zero())
