@@ -8,3 +8,5 @@ otp_release:
   - 19.2
 
 sudo: false
+
+script: "mix test && mix property"

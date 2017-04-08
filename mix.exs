@@ -8,6 +8,8 @@ defmodule Heap.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
+     aliases: aliases(),
+     test_pattern: "*_{test,property}.exs",
      docs: documentation()]
   end
 
@@ -17,9 +19,18 @@ defmodule Heap.Mixfile do
 
   defp deps do
     [{:heap, path: "./erlang"},
+     {:propcheck, "~> 0.0.1"},
      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
      {:ex_doc, "~> 0.15", only: :dev, runtime: false}
     ]
+  end
+
+  defp aliases do
+    [property: [&test/1, "test property/"]]
+  end
+
+  defp test(_) do
+    Mix.env(:test)
   end
 
   defp documentation do
