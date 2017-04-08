@@ -14,5 +14,5 @@ You might be familiar with the heap from **Heap-Sort**, **Dijkstra's**, or **Pri
 
 This is a program w/ which to learn Erlang (but nothing about processes) + how to build an Elixir library around it.
 This is a pretty involved Erlang program but its domain isn't complicated.
-It involves modules, functions, lists, and tuples.
-It's has OTP structure with documentation, type specifications, and a test suite.
+It involves modules, functions, lists, and tuples with OTP structure, documentation, type specifications, and a test suite.
+A property suite is written in Elixir.
