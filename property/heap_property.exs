@@ -34,6 +34,9 @@ defmodule HeapProperty do
     end
   end
 
+  ## Property around the minima and maxima when we arbitrarily
+  ## interleave insertion and extraction
+
   ## Ancillary
 
   defp heapify(x), do: heapify(x, Heap.zero())
