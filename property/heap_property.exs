@@ -1,6 +1,7 @@
 defmodule HeapProperty do
   use ExUnit.Case
   use PropCheck
+  import Heap, only: [heapify: 1, listify: 1]
 
   property "first element out is the smallest" do
     forall x <- list(integer()) do
@@ -36,26 +37,4 @@ defmodule HeapProperty do
 
   ## Property around the minima and maxima when we arbitrarily
   ## interleave insertion and extraction
-
-  ## Ancillary
-
-  defp heapify(x), do: heapify(x, Heap.zero())
-
-  defp heapify([], z) do
-    z
-  end
-  defp heapify([x|y], z) do
-    heapify(y, Heap.insert(z, x))
-  end
-
-  defp listify(x), do: listify(x, [])
-
-  defp listify(x, y) do
-    if Heap.zero?(x) do
-      Enum.reverse(y)
-    else
-      {i, j} = Heap.extract(x)
-      listify(i, [j|y])
-    end
-  end
 end

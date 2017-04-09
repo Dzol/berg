@@ -8,7 +8,7 @@
     <title>Heap – heapex v0.1.0</title>
     <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
     
-    <script src="dist/sidebar_items-a422c2d44a.js"></script>
+    <script src="dist/sidebar_items-44e6edb6b6.js"></script>
   </head>
   <body data-type="modules">
     <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
@@ -123,11 +123,29 @@ if it were in the heap</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#heapify/1">heapify(x)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>A heap with the same elements as the list in question</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#insert/2">insert(x, y)</a>
   </div>
   
     <div class="summary-synopsis"><p>A heap whose smallest element is the minimum of the element in
 question and the smallest element of the heap in question</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#listify/1">listify(x)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>A list in ascending order (w/ all the same elements as the heap)</p>
 </div>
   
 </div>
@@ -265,6 +283,28 @@ if it were in the heap</p>
 
   </section>
 </div>
+<div class="detail" id="heapify/1">
+  
+  <div class="detail-header">
+    <a href="#heapify/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">heapify(x)</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>heapify([integer]) :: <a href="Heap.html#t:t/0">Heap.t</a></pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>A heap with the same elements as the list in question</p>
+
+  </section>
+</div>
 <div class="detail" id="insert/2">
   
   <div class="detail-header">
@@ -285,6 +325,28 @@ if it were in the heap</p>
   <section class="docstring">
     <p>A heap whose smallest element is the minimum of the element in
 question and the smallest element of the heap in question</p>
+
+  </section>
+</div>
+<div class="detail" id="listify/1">
+  
+  <div class="detail-header">
+    <a href="#listify/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">listify(x)</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>listify(<a href="Heap.html#t:t/0">Heap.t</a>) :: [integer]</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>A list in ascending order (w/ all the same elements as the heap)</p>
 
   </section>
 </div>

@@ -64,4 +64,32 @@ defmodule Heap do
   def extract(x) do
     :heap.extract(x)
   end
+
+  @doc """
+  A heap with the same elements as the list in question
+  """
+  @spec heapify(list(integer)) :: __MODULE__.t
+  def heapify(x), do: heapify(x, Heap.zero())
+
+  defp heapify([], z) do
+    z
+  end
+  defp heapify([x|y], z) do
+    heapify(y, Heap.insert(z, x))
+  end
+
+  @doc """
+  A list in ascending order (w/ all the same elements as the heap)
+  """
+  @spec listify(__MODULE__.t) :: list(integer)
+  def listify(x), do: listify(x, [])
+
+  defp listify(x, y) do
+    if Heap.zero?(x) do
+      Enum.reverse(y)
+    else
+      {i, j} = Heap.extract(x)
+      listify(i, [j|y])
+    end
+  end
 end
