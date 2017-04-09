@@ -2,7 +2,7 @@ defmodule HeapProperty do
   use ExUnit.Case
   use PropCheck
 
-  property "first element of heap is the minimum of its input" do
+  property "first element out is the smallest" do
     forall x <- list(integer()) do
       implies x != [] do
         assert List.first(listify(heapify(x))) === Enum.min(x)
@@ -10,7 +10,15 @@ defmodule HeapProperty do
     end
   end
 
-  property "last element of heap is the maximum of its input" do
+  property "last element out is the biggest" do
+    forall x <- list(integer()) do
+      implies x != [] do
+        assert List.last(listify(heapify(x))) == Enum.max(x)
+      end
+    end
+  end
+
+  property "as many elements out as put in" do
     forall x <- list(integer()) do
       implies x != [] do
         assert length(listify(heapify(x))) == length(x)
@@ -18,15 +26,7 @@ defmodule HeapProperty do
     end
   end
 
-  property "heap has as many elements as its input" do
-    forall x <- list(integer()) do
-      implies x != [] do
-        assert length(listify(heapify(x))) == length(x)
-      end
-    end
-  end
-
-  property "heap has as same elements as its input" do
+  property "same elements out as put in" do
     forall x <- list(integer()) do
       implies x != [] do
         assert Enum.all?(listify(heapify(x)), &Enum.member?(x, &1))
