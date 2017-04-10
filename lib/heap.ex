@@ -42,8 +42,8 @@ defmodule Heap do
   @doc """
   The smallest element of the heap
   """
-  @spec peak(__MODULE__.t) :: element
-  def peak(x) do
+  @spec root(__MODULE__.t) :: element
+  def root(x) do
     :heap.peak(x)
   end
 
@@ -54,6 +54,13 @@ defmodule Heap do
   @spec insert(__MODULE__.t, element) :: __MODULE__.t
   def insert(x, y) do
     :heap.insert(y, x)
+  end
+
+  @doc """
+  The heap in question w/o the smallest element
+  """
+  def trunk(x) do
+    elem(extract(x), 0)
   end
 
   @doc """
@@ -88,8 +95,7 @@ defmodule Heap do
     if Heap.zero?(x) do
       Enum.reverse(y)
     else
-      {i, j} = Heap.extract(x)
-      listify(i, [j|y])
+      listify(trunk(x), [root(x)|y])
     end
   end
 end

@@ -9,11 +9,11 @@ defmodule HeapTest do
     assert false == Heap.zero?(Heap.unary(0) |> Heap.insert(1))
   end
 
-  test "peak at the heap" do
+  test "peeking at the heap" do
 
-    assert 0 == Heap.peak(Heap.zero()   |> Heap.insert(0))
-    assert 0 == Heap.peak(Heap.unary(0))
-    assert 0 == Heap.peak(Heap.unary(0) |> Heap.insert(1))
+    assert 0 == Heap.root(Heap.zero()   |> Heap.insert(0))
+    assert 0 == Heap.root(Heap.unary(0))
+    assert 0 == Heap.root(Heap.unary(0) |> Heap.insert(1))
   end
 
   test "duplicate element present" do

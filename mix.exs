@@ -21,6 +21,7 @@ defmodule Heap.Mixfile do
     [{:heap, path: "./erlang"},
      {:propcheck, "~> 0.0.1"},
      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
+     {:credo, "~> 0.5", only: [:dev, :test]},
      {:ex_doc, "~> 0.15", only: :dev, runtime: false}
     ]
   end
