@@ -2,15 +2,19 @@ defmodule Berg.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :berg,
+    [name: "Berg",
+     app: :berg,
      version: "1.0.0",
+     description: description(),
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps(),
      aliases: aliases(),
      test_pattern: "*_{test,property}.exs",
-     docs: documentation()]
+     docs: documentation(),
+     package: package()
+    ]
   end
 
   def application do
@@ -26,6 +30,12 @@ defmodule Berg.Mixfile do
     ]
   end
 
+  defp description do
+    """
+    Berg is a Minimum Heap just for Integers
+    """
+  end
+
   defp aliases do
     [property: [&test/1, "test property/"]]
   end
@@ -35,6 +45,18 @@ defmodule Berg.Mixfile do
   end
 
   defp documentation do
-    [output: "docs"]
+    [output: "docs",
+     main: "Berg"
+    ]
+  end
+
+  defp package do
+    [licenses: "GNU GPLv3",
+     maintainers: ["Joseph Yiasemides"],
+     files: ["erlang", "lib", "mix.exs", "README.md", "LICENSE.txt"],
+     links: %{"GitHub" => "https://github.com/Dzol/berg/",
+              "Docs" => "https://dzol.github.io/berg/"
+             }
+    ]
   end
 end
