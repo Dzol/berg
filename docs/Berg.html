@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.15.0">
-    <title>Heap – heapex v0.1.0</title>
+    <title>Berg – berg v1.0.0</title>
     <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
     
-    <script src="dist/sidebar_items-44e6edb6b6.js"></script>
+    <script src="dist/sidebar_items-2a4bc7eaff.js"></script>
   </head>
   <body data-type="modules">
     <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
@@ -23,10 +23,10 @@
   <a href="api-reference.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
-        heapex
+        berg
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v1.0.0
       </h2>
     </div>
     
@@ -58,8 +58,8 @@
 
 
       <h1>
-        <small class="visible-xs">heapex v0.1.0</small>
-        Heap
+        <small class="visible-xs">berg v1.0.0</small>
+        Berg
         
         
       </h1>
@@ -151,10 +151,19 @@ question and the smallest element of the heap in question</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#peak/1">peak(x)</a>
+    <a href="#root/1">root(x)</a>
   </div>
   
     <div class="summary-synopsis"><p>The smallest element of the heap</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#trunk/1">trunk(x)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>The heap in question w/o the smallest element</p>
 </div>
   
 </div>
@@ -272,7 +281,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>extract(<a href="Heap.html#t:t/0">Heap.t</a>) :: {<a href="Heap.html#t:t/0">Heap.t</a>, <a href="#t:element/0">element</a>}</pre>
+          <pre>extract(<a href="Berg.html#t:t/0">Berg.t</a>) :: {<a href="Berg.html#t:t/0">Berg.t</a>, <a href="#t:element/0">element</a>}</pre>
         
       </div>
     
@@ -295,7 +304,7 @@ if it were in the heap</p>
     
       <div class="specs">
         
-          <pre>heapify([integer]) :: <a href="Heap.html#t:t/0">Heap.t</a></pre>
+          <pre>heapify([integer]) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -317,7 +326,7 @@ if it were in the heap</p>
     
       <div class="specs">
         
-          <pre>insert(<a href="Heap.html#t:t/0">Heap.t</a>, <a href="#t:element/0">element</a>) :: <a href="Heap.html#t:t/0">Heap.t</a></pre>
+          <pre>insert(<a href="Berg.html#t:t/0">Berg.t</a>, <a href="#t:element/0">element</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -340,7 +349,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>listify(<a href="Heap.html#t:t/0">Heap.t</a>) :: [integer]</pre>
+          <pre>listify(<a href="Berg.html#t:t/0">Berg.t</a>) :: [integer]</pre>
         
       </div>
     
@@ -350,25 +359,41 @@ question and the smallest element of the heap in question</p>
 
   </section>
 </div>
-<div class="detail" id="peak/1">
+<div class="detail" id="root/1">
   
   <div class="detail-header">
-    <a href="#peak/1" class="detail-link" title="Link to this function">
+    <a href="#root/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">peak(x)</span>
+    <span class="signature">root(x)</span>
     
     
     
       <div class="specs">
         
-          <pre>peak(<a href="Heap.html#t:t/0">Heap.t</a>) :: <a href="#t:element/0">element</a></pre>
+          <pre>root(<a href="Berg.html#t:t/0">Berg.t</a>) :: <a href="#t:element/0">element</a></pre>
         
       </div>
     
   </div>
   <section class="docstring">
     <p>The smallest element of the heap</p>
+
+  </section>
+</div>
+<div class="detail" id="trunk/1">
+  
+  <div class="detail-header">
+    <a href="#trunk/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">trunk(x)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>The heap in question w/o the smallest element</p>
 
   </section>
 </div>
@@ -384,7 +409,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>unary(<a href="#t:element/0">element</a>) :: <a href="Heap.html#t:t/0">Heap.t</a></pre>
+          <pre>unary(<a href="#t:element/0">element</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -406,7 +431,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>zero() :: <a href="Heap.html#t:t/0">Heap.t</a></pre>
+          <pre>zero() :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -428,7 +453,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>zero?(<a href="Heap.html#t:t/0">Heap.t</a>) :: boolean</pre>
+          <pre>zero?(<a href="Berg.html#t:t/0">Berg.t</a>) :: boolean</pre>
         
       </div>
     

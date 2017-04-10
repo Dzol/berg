@@ -1,4 +1,4 @@
-defmodule Heap do
+defmodule Berg do
   @moduledoc """
   A Minimum Heap for Integers
   """
@@ -76,13 +76,13 @@ defmodule Heap do
   A heap with the same elements as the list in question
   """
   @spec heapify(list(integer)) :: __MODULE__.t
-  def heapify(x), do: heapify(x, Heap.zero())
+  def heapify(x), do: heapify(x, Berg.zero())
 
   defp heapify([], z) do
     z
   end
   defp heapify([x|y], z) do
-    heapify(y, Heap.insert(z, x))
+    heapify(y, Berg.insert(z, x))
   end
 
   @doc """
@@ -92,7 +92,7 @@ defmodule Heap do
   def listify(x), do: listify(x, [])
 
   defp listify(x, y) do
-    if Heap.zero?(x) do
+    if Berg.zero?(x) do
       Enum.reverse(y)
     else
       listify(trunk(x), [root(x)|y])

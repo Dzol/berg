@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/Dzol/heap.svg?branch=master)](https://travis-ci.org/Dzol/heap)
+[![Build Status](https://travis-ci.org/Dzol/berg.svg?branch=master)](https://travis-ci.org/Dzol/berg)
 
-# Heap
+# Berg
 
-[Heap](http://dzol.github.io/heap) is a Two Pass Minimum Heap for Integers in Elixir.
-The underlying library is in Erlang.
+[Berg](http://dzol.github.io/berg) is a Minimum Heap for Integers in Elixir.
+The underlying library is a Two Pass Pairing Heap in Erlang.
 
 ## What is it?
 
@@ -13,6 +13,7 @@ You might be familiar with the heap from **Heap-Sort**, **Dijkstra's**, or **Pri
 ## Rationale
 
 This is a program w/ which to learn Erlang (but nothing about processes) + how to build an Elixir library around it.
-This is a pretty involved Erlang program but its domain isn't complicated.
-It involves modules, functions, lists, and tuples with OTP structure, documentation, type specifications, and a test suite.
-A property suite is written in Elixir.
+Though its an involved Erlang program its domain isn't complicated.
+It involves modules, functions, lists, and tuples.
+The project has OTP Application structure, documentation, type specifications, and a test suite (`mix test`).
+A **property** suite is written in Elixir (`mix property`).

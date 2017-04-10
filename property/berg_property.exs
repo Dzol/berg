@@ -1,7 +1,7 @@
-defmodule HeapProperty do
+defmodule BergProperty do
   use ExUnit.Case
   use PropCheck
-  import Heap, only: [heapify: 1, listify: 1]
+  import Berg, only: [heapify: 1, listify: 1]
 
   property "first element out is the smallest" do
     forall x <- list(integer()) do
