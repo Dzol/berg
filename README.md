@@ -1,3 +1,5 @@
+![The Tatra Range](./tatra.jpg)
+
 [![Build Status](https://travis-ci.org/Dzol/berg.svg?branch=master)](https://travis-ci.org/Dzol/berg)
 
 # Berg
