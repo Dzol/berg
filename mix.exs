@@ -14,7 +14,7 @@ defmodule Berg.Mixfile do
      test_pattern: "*_{test,property}.exs",
      docs: documentation(),
      package: package()
-    ]
+    ] ++ dialyzer()
   end
 
   def application do
@@ -57,6 +57,11 @@ defmodule Berg.Mixfile do
      links: %{"GitHub" => "https://github.com/Dzol/berg/",
               "Docs" => "https://dzol.github.io/berg/"
              }
+    ]
+  end
+
+  defp dialyzer do
+    [dialyzer: [plt_core_path: ".dialyzer/"]
     ]
   end
 end
