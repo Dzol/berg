@@ -9,13 +9,13 @@ The underlying library is a Two Pass [Pairing Heap](https://en.wikipedia.org/wik
 
 ## What is it?
 
-The interface is akind to a [Priority Queue](https://en.wikipedia.org/wiki/Priority_queue).
-You might be familiar with the heap from algorithms such as **Heap-Sort**, **Dijkstra's**, or **Prim's**.
+The interface is akin to a [Priority Queue](https://en.wikipedia.org/wiki/Priority_queue).
+You might be familiar with the Heap from algorithms such as **Heap-Sort**, **Dijkstra's**, or **Prim's**.
 
 ## Rationale
 
 This is a program w/ which to learn sequential Erlang + how to build an Elixir library around it.
-It is an involved Erlang program (involving modules, functions, lists, and tuples) but its domain isn't complicated.
-The project has OTP Application structure, documentation, dialyzer declarations, and a test suite (`mix test`).
+It's a fairly complex Erlang program (involving modules, functions, lists, and tuples) but its domain isn't complicated.
+The project has OTP Application structure, documentation, Dialyzer declarations, and a test suite (`mix test`).
 
 A **property** suite is written in Elixir (`mix property`).
