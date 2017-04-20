@@ -4,13 +4,13 @@
 
 # Berg
 
-[Berg](http://dzol.github.io/berg) is a Minimum Heap for Integers in Elixir.
-The underlying library is a Two Pass Pairing Heap in Erlang.
+[Berg](http://dzol.github.io/berg) is a Minimum [Heap](https://en.wikipedia.org/wiki/Heap_(data_structure)) for Integers in Elixir.
+The underlying library is a Two Pass [Pairing Heap](https://en.wikipedia.org/wiki/Pairing_heap) in Erlang.
 
 ## What is it?
 
-Google _Priority Queue_ or _Pairing Heap_ or find them on Wikipedia.
-You might be familiar with the heap from **Heap-Sort**, **Dijkstra's**, or **Prim's**.
+The interface is akind to a [Priority Queue](https://en.wikipedia.org/wiki/Priority_queue).
+You might be familiar with the heap from algorithms such as **Heap-Sort**, **Dijkstra's**, or **Prim's**.
 
 ## Rationale
 
