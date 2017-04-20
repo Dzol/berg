@@ -14,8 +14,8 @@ You might be familiar with the heap from **Heap-Sort**, **Dijkstra's**, or **Pri
 
 ## Rationale
 
-This is a program w/ which to learn Erlang (but nothing about processes) + how to build an Elixir library around it.
-Though its an involved Erlang program its domain isn't complicated.
-It involves modules, functions, lists, and tuples.
-The project has OTP Application structure, documentation, type specifications, and a test suite (`mix test`).
+This is a program w/ which to learn sequential Erlang + how to build an Elixir library around it.
+It is an involved Erlang program (involving modules, functions, lists, and tuples) but its domain isn't complicated.
+The project has OTP Application structure, documentation, dialyzer declarations, and a test suite (`mix test`).
+
 A **property** suite is written in Elixir (`mix property`).
