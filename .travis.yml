@@ -17,3 +17,4 @@ script:
   - mix test
   - mix property
   - mix dialyzer
+  - mix credo --strict
