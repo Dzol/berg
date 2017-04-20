@@ -9,6 +9,11 @@ otp_release:
 
 sudo: false
 
+cache:
+  directories:
+    - .dialyzer
+
 script:
   - mix test
   - mix property
+  - mix dialyzer
