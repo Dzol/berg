@@ -11,7 +11,8 @@ sudo: false
 
 cache:
   directories:
-    - .dialyzer
+    - $MIX_HOME/dialyxir_erlang-19.2.plt
+    - $MIX_HOME/dialyxir_erlang-19.2_elixir-1.4.2.plt
 
 script:
   - mix test
