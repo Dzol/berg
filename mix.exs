@@ -14,7 +14,7 @@ defmodule Berg.Mixfile do
      test_pattern: "*_{test,property}.exs",
      docs: documentation(),
      package: package()
-    ] ++ dialyzer()
+    ] ++ erlang() ++ dialyzer()
   end
 
   def application do
@@ -22,8 +22,7 @@ defmodule Berg.Mixfile do
   end
 
   defp deps do
-    [{:heap, path: "./erlang"},
-     {:propcheck, "~> 0.0.1"},
+    [{:propcheck, "~> 0.0.1"},
      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
      {:credo, "~> 0.5", only: [:dev, :test]},
      {:ex_doc, "~> 0.15", only: :dev, runtime: false}
@@ -57,6 +56,11 @@ defmodule Berg.Mixfile do
      links: %{"GitHub" => "https://github.com/Dzol/berg/",
               "Docs" => "https://dzol.github.io/berg/"
              }
+    ]
+  end
+
+  defp erlang do
+    [erlc_paths: ["erlang"]
     ]
   end
 
