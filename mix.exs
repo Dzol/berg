@@ -22,7 +22,7 @@ defmodule Berg.Mixfile do
   end
 
   defp deps do
-    [{:propcheck, "~> 0.0.1"},
+    [{:propcheck, "~> 0.0.1", only: [:dev, :test]},
      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
      {:credo, "~> 0.5", only: [:dev, :test]},
      {:ex_doc, "~> 0.15", only: :dev, runtime: false}
@@ -54,9 +54,7 @@ defmodule Berg.Mixfile do
     [licenses: "GNU GPLv3",
      maintainers: ["Joseph Yiasemides"],
      files: ["erlang", "lib", "mix.exs", "README.md", "LICENSE.txt"],
-     links: %{"GitHub" => "https://github.com/Dzol/berg/",
-              "Docs" => "https://dzol.github.io/berg/"
-             }
+     links: %{"GitHub" => "https://github.com/Dzol/berg/"}
     ]
   end
 
