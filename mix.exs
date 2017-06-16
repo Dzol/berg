@@ -51,7 +51,7 @@ defmodule Berg.Mixfile do
   end
 
   defp package do
-    [licenses: "GNU GPLv3",
+    [licenses: ["GNU GPLv3"],
      maintainers: ["Joseph Yiasemides"],
      files: ["erlang", "lib", "mix.exs", "README.md", "LICENSE.txt"],
      links: %{"GitHub" => "https://github.com/Dzol/berg/"}
