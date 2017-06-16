@@ -4,7 +4,7 @@ defmodule Berg.Mixfile do
   def project do
     [name: "Berg",
      app: :berg,
-     version: "1.0.0",
+     version: "1.1.0",
      description: description(),
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
