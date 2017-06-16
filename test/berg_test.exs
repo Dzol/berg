@@ -1,5 +1,6 @@
 defmodule BergTest do
   use ExUnit.Case
+  doctest Berg
 
   test "the zero heap predicate" do
 

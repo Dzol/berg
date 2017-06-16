@@ -27,6 +27,12 @@ defmodule Berg do
 
   @doc """
   Predicate: is this the _zero_ heap?
+
+  ## Example
+
+      iex> Berg.zero? Berg.zero()
+      true
+
   """
   @spec zero?(__MODULE__.t) :: boolean
   def zero?(x) do
@@ -35,6 +41,12 @@ defmodule Berg do
 
   @doc """
   A Heap w/ just one element
+
+  ## Example
+
+      iex> Berg.zero? Berg.unary(4)
+      false
+
   """
   @spec unary(element) :: __MODULE__.t
   def unary(x) do
@@ -43,6 +55,14 @@ defmodule Berg do
 
   @doc """
   The smallest element of the heap
+
+  ## Example
+
+      iex> l = [42, 16, 8, 4, 15, 23]
+      iex> h = Berg.heapify l
+      iex> Berg.root h
+      4
+
   """
   @spec root(__MODULE__.t) :: element
   def root(x) do
@@ -52,6 +72,15 @@ defmodule Berg do
   @doc """
   A heap whose smallest element is the minimum of the element in
   question and the smallest element of the heap in question
+
+  ## Example
+
+      iex> l = [16, 8, 15, 23]
+      iex> h = Berg.heapify l
+      iex> i = h |> Berg.insert(4) |> Berg.insert(42)
+      iex> Berg.root(i)
+      4
+
   """
   @spec insert(__MODULE__.t, element) :: __MODULE__.t
   def insert(x, y) do
@@ -60,6 +89,15 @@ defmodule Berg do
 
   @doc """
   The heap in question w/o the smallest element
+
+  ## Example
+
+      iex> l = [42, 16, 8, 4, 15, 23]
+      iex> h = Berg.heapify l
+      iex> t = Berg.trunk h
+      iex> Berg.listify(t)
+      [8, 15, 16, 23, 42]
+
   """
   def trunk(x) do
     elem(extract(x), 0)
@@ -68,6 +106,17 @@ defmodule Berg do
   @doc """
   A heap alongside an element where that element would be the smallest
   if it were in the heap
+
+  ## Example
+
+      iex> l = [42, 16, 8, 4, 15, 23]
+      iex> h = Berg.heapify l
+      iex> {t, e} = Berg.extract h
+      iex> Berg.listify t
+      [8, 15, 16, 23, 42]
+      iex> e
+      4
+
   """
   @spec extract(__MODULE__.t) :: {__MODULE__.t, element}
   def extract(x) do
