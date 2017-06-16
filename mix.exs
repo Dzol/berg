@@ -36,7 +36,8 @@ defmodule Berg.Mixfile do
   end
 
   defp aliases do
-    [property: [&test/1, "test property/"]]
+    [property: [&test/1, "test property/"],
+     docs: ["docs", &picture/1]]
   end
 
   defp test(_) do
@@ -67,5 +68,9 @@ defmodule Berg.Mixfile do
   defp dialyzer do
     [dialyzer: [plt_core_path: ".dialyzer/"]
     ]
+  end
+
+  defp picture(_) do
+    File.cp("./tatra.jpg", "./docs/tatra.jpg")
   end
 end

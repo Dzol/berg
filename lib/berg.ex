@@ -1,6 +1,8 @@
 defmodule Berg do
   @moduledoc """
   A Minimum Heap for Integers
+
+  ![The Tatra Range](./tatra.jpg)
   """
 
   @typedoc """
