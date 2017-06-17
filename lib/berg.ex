@@ -3,6 +3,10 @@ defmodule Berg do
   A Minimum Heap for Integers
 
   ![The Tatra Range](./tatra.jpg)
+
+  <p>
+    <cite>The Tatra Range:</cite> TripAdvisor
+  </p>
   """
 
   @typedoc """
