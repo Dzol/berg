@@ -22,7 +22,7 @@ defmodule Berg.Mixfile do
   end
 
   defp deps do
-    [{:propcheck, "~> 0.0.1", only: [:dev, :test]},
+    [{:stream_data, "~> 0.1.1", only: [:dev, :test]},
      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
      {:credo, "~> 0.5", only: [:dev, :test]},
      {:ex_doc, "~> 0.15", only: :dev, runtime: false}
