@@ -5,29 +5,33 @@ defmodule BergProperty do
 
   property "first element out is the smallest" do
     check all x <- list_of(integer()), x != [] do
+      y = x |> heapify() |> listify()
 
-      assert List.first(listify(heapify(x))) === Enum.min(x)
+      assert List.first(y) === Enum.min(x)
     end
   end
 
   property "last element out is the biggest" do
     check all x <- list_of(integer()), x != [] do
+      y = x |> heapify() |> listify()
 
-      assert List.last(listify(heapify(x))) == Enum.max(x)
+      assert List.last(y) == Enum.max(x)
     end
   end
 
   property "as many elements out as put in" do
     check all x <- list_of(integer()), x != [] do
+      y = x |> heapify() |> listify()
 
-      assert length(listify(heapify(x))) == length(x)
+      assert length(y) == length(x)
     end
   end
 
   property "same elements out as put in" do
     check all x <- list_of(integer()), x != [] do
+      y = x |> heapify() |> listify()
 
-      assert Enum.all?(listify(heapify(x)), &Enum.member?(x, &1))
+      assert Enum.all?(y, &Enum.member?(x, &1))
     end
   end
 
