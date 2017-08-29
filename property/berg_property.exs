@@ -35,6 +35,14 @@ defmodule BergProperty do
     end
   end
 
+  property "input values ⊆ output values" do
+    check all x <- list_of(integer()), x != [] do
+      y = x |> heapify() |> listify()
+
+      assert Enum.all?(x, &Enum.member?(y, &1))
+    end
+  end
+
   ## Property around the minima and maxima when we arbitrarily
   ## interleave insertion and extraction
 end
