@@ -3,7 +3,7 @@ defmodule BergProperty do
   import PropertyTest
   import Berg, only: [heapify: 1, listify: 1]
 
-  property "first element out is the smallest" do
+  property "first element out is the smallest in" do
     check all x <- list_of(integer()), x != [] do
       y = x |> heapify() |> listify()
 
@@ -11,7 +11,7 @@ defmodule BergProperty do
     end
   end
 
-  property "last element out is the biggest" do
+  property "last element out is the biggest in" do
     check all x <- list_of(integer()), x != [] do
       y = x |> heapify() |> listify()
 
@@ -27,7 +27,7 @@ defmodule BergProperty do
     end
   end
 
-  property "same elements out as put in" do
+  property "output values ⊆ input values" do
     check all x <- list_of(integer()), x != [] do
       y = x |> heapify() |> listify()
 
