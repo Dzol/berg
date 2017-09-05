@@ -5,6 +5,7 @@
 ![The Tatra Range](./tatra.jpg)
 
 [![Build Status](https://travis-ci.org/Dzol/berg.svg?branch=master)](https://travis-ci.org/Dzol/berg)
+[![Coverage Status](https://coveralls.io/repos/github/Dzol/berg/badge.svg?branch=master)](https://coveralls.io/github/Dzol/berg)
 
 # Berg
 

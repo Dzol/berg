@@ -18,3 +18,4 @@ script:
   - mix property
   - mix dialyzer
   - mix credo --strict
+  - env MIX_ENV=test mix coveralls.travis

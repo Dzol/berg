@@ -13,7 +13,8 @@ defmodule Berg.Mixfile do
      aliases: aliases(),
      test_pattern: "*_{test,property}.exs",
      docs: documentation(),
-     package: package()
+     package: package(),
+     test_coverage: [tool: ExCoveralls]
     ] ++ erlang() ++ dialyzer()
   end
 
@@ -25,7 +26,8 @@ defmodule Berg.Mixfile do
     [{:stream_data, "~> 0.2.0", only: [:dev, :test]},
      {:dialyxir, "~> 0.5.1", only: [:dev], runtime: false},
      {:credo, "~> 0.8.6", only: [:dev, :test]},
-     {:ex_doc, "~> 0.16.3", only: :dev, runtime: false}
+     {:ex_doc, "~> 0.16.3", only: :dev, runtime: false},
+     {:excoveralls, "~> 0.7.2", only: [:dev, :test]}
     ]
   end
 
