@@ -1,9 +1,6 @@
 REBAR = ./rebar3
 
-.PHONY: test doc type init clean
-
-test:
-	$(REBAR) ct
+.PHONY: doc type init clean
 
 doc:
 	$(REBAR) edoc
