@@ -16,6 +16,6 @@ cache:
 script:
   - mix test
   - mix property
-  - mix dialyzer
-  - mix credo --strict
   - env MIX_ENV=test mix coveralls.travis
+  - mix credo --strict
+  - mix dialyzer
