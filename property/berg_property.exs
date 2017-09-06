@@ -35,7 +35,7 @@ defmodule BergProperty do
     end
   end
 
-  property "input values ⊆ output values" do
+  property "output values ⊇ input values" do
     check all input <- list_of(integer()), input != [] do
       out = input |> heapify() |> listify()
 
