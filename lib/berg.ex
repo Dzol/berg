@@ -10,12 +10,13 @@ defmodule Berg do
   """
 
   @typedoc """
-  A Minimum Heap
+  A Minimum Heap (of Integers)
   """
   @opaque t :: {
-    value    :: :infinity | integer,
+    value    :: :infinity | element,
     children :: list
   }
+
   @typedoc """
   An Element (just an Integer)
   """
@@ -26,7 +27,7 @@ defmodule Berg do
   """
   @spec zero :: __MODULE__.t
   def zero do
-    :heap.zero
+    :heap.zero()
   end
 
   @doc """
@@ -34,7 +35,7 @@ defmodule Berg do
 
   ## Example
 
-      iex> Berg.zero? Berg.zero()
+      iex> Berg.zero?(Berg.zero())
       true
 
   """
@@ -48,7 +49,7 @@ defmodule Berg do
 
   ## Example
 
-      iex> Berg.zero? Berg.unary(4)
+      iex> Berg.zero?(Berg.unary(4))
       false
 
   """
@@ -63,8 +64,8 @@ defmodule Berg do
   ## Example
 
       iex> l = [42, 16, 8, 4, 15, 23]
-      iex> h = Berg.heapify l
-      iex> Berg.root h
+      iex> h = Berg.heapify(l)
+      iex> Berg.root(h)
       4
 
   """
@@ -80,7 +81,7 @@ defmodule Berg do
   ## Example
 
       iex> l = [16, 8, 15, 23]
-      iex> h = Berg.heapify l
+      iex> h = Berg.heapify(l)
       iex> i = h |> Berg.insert(4) |> Berg.insert(42)
       iex> Berg.root(i)
       4
@@ -97,12 +98,13 @@ defmodule Berg do
   ## Example
 
       iex> l = [42, 16, 8, 4, 15, 23]
-      iex> h = Berg.heapify l
-      iex> t = Berg.trunk h
+      iex> h = Berg.heapify(l)
+      iex> t = Berg.trunk(h)
       iex> Berg.listify(t)
       [8, 15, 16, 23, 42]
 
   """
+  @spec trunk(__MODULE__.t) :: __MODULE__.t
   def trunk(x) do
     elem(extract(x), 0)
   end
@@ -114,9 +116,9 @@ defmodule Berg do
   ## Example
 
       iex> l = [42, 16, 8, 4, 15, 23]
-      iex> h = Berg.heapify l
-      iex> {t, e} = Berg.extract h
-      iex> Berg.listify t
+      iex> h = Berg.heapify(l)
+      iex> {t, e} = Berg.extract(h)
+      iex> Berg.listify(t)
       [8, 15, 16, 23, 42]
       iex> e
       4
@@ -130,27 +132,28 @@ defmodule Berg do
   @doc """
   A heap with the same elements as the list in question
   """
-  @spec heapify(list(integer)) :: __MODULE__.t
-  def heapify(x), do: heapify(x, Berg.zero())
+  @spec heapify(list(element)) :: __MODULE__.t
+  def heapify(x), do: heapify(x, zero())
 
+  @ spec heapify(list(element), __MODULE__.t) :: __MODULE__.t
   defp heapify([], z) do
     z
   end
   defp heapify([x|y], z) do
-    heapify(y, Berg.insert(z, x))
+    heapify(y, insert(z, x))
   end
 
   @doc """
   A list in ascending order (w/ all the same elements as the heap)
   """
-  @spec listify(__MODULE__.t) :: list(integer)
-  def listify(x), do: listify(x, [])
+  @spec listify(__MODULE__.t) :: list(element)
+  def listify(x), do: fold(x, [], & [&1 | &2])
 
-  defp listify(x, y) do
-    if Berg.zero?(x) do
-      Enum.reverse(y)
+  def fold(x, i, f) do ## Don't leak internals
+    if zero?(x) do
+      Enum.reverse(i)
     else
-      listify(trunk(x), [root(x)|y])
+      fold(trunk(x), apply(f, [root(x), i]), f)
     end
   end
 end
