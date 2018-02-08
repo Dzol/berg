@@ -1,7 +1,7 @@
 defmodule BergProperty do
   use ExUnit.Case
   import PropertyTest
-  import Berg, only: [heapify: 1, listify: 1]
+  import Berg.Heap, only: [heapify: 1, listify: 1]
 
   property "first element out is the smallest in" do
     check all input <- list_of(integer()), input != [] do

@@ -1,36 +1,40 @@
-defmodule BergTest do
+defmodule Berg.HeapTest do
   use ExUnit.Case
-  doctest Berg
+  doctest Berg.Heap
 
   test "the zero heap predicate" do
+    alias Berg.Heap
 
-    assert true  == Berg.zero?(Berg.zero())
-    assert false == Berg.zero?(Berg.zero()   |> Berg.insert(0))
-    assert false == Berg.zero?(Berg.unary(0))
-    assert false == Berg.zero?(Berg.unary(0) |> Berg.insert(1))
+    assert true  == Heap.zero?(Heap.zero())
+    assert false == Heap.zero?(Heap.zero()   |> Heap.insert(0))
+    assert false == Heap.zero?(Heap.unary(0))
+    assert false == Heap.zero?(Heap.unary(0) |> Heap.insert(1))
   end
 
   test "peeking at the heap" do
+    alias Berg.Heap
 
-    assert 0 == Berg.root(Berg.zero()   |> Berg.insert(0))
-    assert 0 == Berg.root(Berg.unary(0))
-    assert 0 == Berg.root(Berg.unary(0) |> Berg.insert(1))
+    assert 0 == Heap.root(Heap.zero()   |> Heap.insert(0))
+    assert 0 == Heap.root(Heap.unary(0))
+    assert 0 == Heap.root(Heap.unary(0) |> Heap.insert(1))
   end
 
   test "duplicate element present" do
+    alias Berg.Heap
 
-    x = Berg.zero() |> Berg.insert(0) |> Berg.insert(0)
+    x = Heap.zero() |> Heap.insert(0) |> Heap.insert(0)
 
-    assert {y, 0} = Berg.extract(x)
-    assert {z, 0} = Berg.extract(y)
+    assert {y, 0} = Heap.extract(x)
+    assert {z, 0} = Heap.extract(y)
 
-    assert Berg.zero?(z) == true
+    assert Heap.zero?(z) == true
   end
 
   test "insert string element failure" do
+    alias Berg.Heap
 
     assert_raise FunctionClauseError, fn ->
-      Berg.insert(Berg.zero(), "fu")
+      Heap.insert(Heap.zero(), "fu")
     end
   end
 end

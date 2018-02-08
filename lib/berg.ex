@@ -1,4 +1,4 @@
-defmodule Berg do
+defmodule Berg.Heap do
   @moduledoc """
   A Minimum Heap for Integers
 
@@ -41,7 +41,8 @@ defmodule Berg do
 
   ## Example
 
-      iex> Berg.zero?(Berg.zero())
+      iex> alias Berg.Heap
+      iex> Heap.zero?(Heap.zero())
       true
 
   """
@@ -55,7 +56,8 @@ defmodule Berg do
 
   ## Example
 
-      iex> Berg.zero?(Berg.unary(4))
+      iex> alias Berg.Heap
+      iex> Heap.zero?(Heap.unary(4))
       false
 
   """
@@ -69,9 +71,10 @@ defmodule Berg do
 
   ## Example
 
+      iex> alias Berg.Heap
       iex> l = [42, 16, 8, 4, 15, 23]
-      iex> h = Berg.heapify(l)
-      iex> Berg.root(h)
+      iex> h = Heap.heapify(l)
+      iex> Heap.root(h)
       4
 
   """
@@ -86,10 +89,11 @@ defmodule Berg do
 
   ## Example
 
+      iex> alias Berg.Heap
       iex> l = [16, 8, 15, 23]
-      iex> h = Berg.heapify(l)
-      iex> i = h |> Berg.insert(4) |> Berg.insert(42)
-      iex> Berg.root(i)
+      iex> h = Heap.heapify(l)
+      iex> i = h |> Heap.insert(4) |> Heap.insert(42)
+      iex> Heap.root(i)
       4
 
   """
@@ -103,10 +107,11 @@ defmodule Berg do
 
   ## Example
 
+      iex> alias Berg.Heap
       iex> l = [42, 16, 8, 4, 15, 23]
-      iex> h = Berg.heapify(l)
-      iex> t = Berg.trunk(h)
-      iex> Berg.listify(t)
+      iex> h = Heap.heapify(l)
+      iex> t = Heap.trunk(h)
+      iex> Heap.listify(t)
       [8, 15, 16, 23, 42]
 
   """
@@ -121,10 +126,11 @@ defmodule Berg do
 
   ## Example
 
+      iex> alias Berg.Heap
       iex> l = [42, 16, 8, 4, 15, 23]
-      iex> h = Berg.heapify(l)
-      iex> {t, e} = Berg.extract(h)
-      iex> Berg.listify(t)
+      iex> h = Heap.heapify(l)
+      iex> {t, e} = Heap.extract(h)
+      iex> Heap.listify(t)
       [8, 15, 16, 23, 42]
       iex> e
       4
