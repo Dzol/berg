@@ -9,18 +9,22 @@ defmodule Berg do
   </p>
   """
 
+  defmodule Element do
+    @moduledoc false
+
+    @typedoc """
+    An Element (just an Integer)
+    """
+    @type t :: integer
+  end
+
   @typedoc """
   A Minimum Heap (of Integers)
   """
   @opaque t :: {
-    value    :: :infinity | element,
+    value    :: :infinity | Element.t,
     children :: list
   }
-
-  @typedoc """
-  An Element (just an Integer)
-  """
-  @type element :: integer
 
   @doc """
   A _zero_ heap
@@ -53,7 +57,7 @@ defmodule Berg do
       false
 
   """
-  @spec unary(element) :: __MODULE__.t
+  @spec unary(Element.t) :: __MODULE__.t
   def unary(x) do
     :heap.unary(x)
   end
@@ -69,7 +73,7 @@ defmodule Berg do
       4
 
   """
-  @spec root(__MODULE__.t) :: element
+  @spec root(__MODULE__.t) :: Element.t
   def root(x) do
     :heap.peak(x)
   end
@@ -87,7 +91,7 @@ defmodule Berg do
       4
 
   """
-  @spec insert(__MODULE__.t, element) :: __MODULE__.t
+  @spec insert(__MODULE__.t, Element.t) :: __MODULE__.t
   def insert(x, y) do
     :heap.insert(y, x)
   end
@@ -124,7 +128,7 @@ defmodule Berg do
       4
 
   """
-  @spec extract(__MODULE__.t) :: {__MODULE__.t, element}
+  @spec extract(__MODULE__.t) :: {__MODULE__.t, Element.t}
   def extract(x) do
     :heap.extract(x)
   end
@@ -132,10 +136,10 @@ defmodule Berg do
   @doc """
   A heap with the same elements as the list in question
   """
-  @spec heapify(list(element)) :: __MODULE__.t
+  @spec heapify(list(Element.t)) :: __MODULE__.t
   def heapify(x), do: heapify(x, zero())
 
-  @ spec heapify(list(element), __MODULE__.t) :: __MODULE__.t
+  @spec heapify(list(Element.t), __MODULE__.t) :: __MODULE__.t
   defp heapify([], z) do
     z
   end
@@ -146,7 +150,7 @@ defmodule Berg do
   @doc """
   A list in ascending order (w/ all the same elements as the heap)
   """
-  @spec listify(__MODULE__.t) :: list(element)
+  @spec listify(__MODULE__.t) :: list(Element.t)
   def listify(x), do: fold(x, [], & [&1 | &2])
 
   def fold(x, i, f) do ## Don't leak internals
