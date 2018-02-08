@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.3">
-    <title>Berg.Heap.Element – Berg v1.1.0</title>
+    <title>Berg – Berg v1.1.0</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
     <script src="dist/sidebar_items-eb812805f8.js"></script>
@@ -65,13 +65,17 @@
 
       <h1>
         <small class="visible-xs">Berg v1.1.0</small>
-        Berg.Heap.Element
+        Berg
         
       </h1>
 
       
         <section id="moduledoc">
-          <p>Heap element dialyzer declaration</p>
+          <p>A Minimum Heap for Integers</p>
+<p><img src="./tatra.jpg" alt="The Tatra Range"/></p>
+<p>
+<cite>The Tatra Range:</cite> TripAdvisor
+</p><p>Higher-order functions and converters live in this module.</p>
 
         </section>
       
@@ -86,24 +90,42 @@
             Summary
           </h1>
           
-  <div class="summary-types summary">
+
+          
+  <div class="summary-functions summary">
     <h2>
-      <a href="#types">Types</a>
+      <a href="#functions">Functions</a>
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#t:t/0">t()</a>
+    <a href="#fold/3">fold(x, i, f)</a>
   </div>
   
-    <div class="summary-synopsis"><p>An Element (just an Integer)</p>
+    <div class="summary-synopsis"><p>A fold such that successive elements are in ascending order</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#heapify/1">heapify(x)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>A heap with the same elements as the list in question</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#listify/1">listify(x)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>A list in ascending order (w/ all the same elements as the heap)</p>
 </div>
   
 </div>
 
   </div>
 
-
-          
 
           
 
@@ -111,44 +133,90 @@
       
 
       
-        <section id="types" class="details-list">
+
+      
+        <section id="functions" class="details-list">
           <h1 class="section-heading">
-            <a class="hover-link" href="#types">
+            <a class="hover-link" href="#functions">
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-            Types
+            Functions
           </h1>
-          <div class="types-list">
-            <div class="detail" id="t:t/0">
+          <div class="detail" id="fold/3">
   
   
   <div class="detail-header">
-    <a href="#t:t/0" class="detail-link" title="Link to this type">
+    <a href="#fold/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this type</span>
+      <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">t()</span>
+    <span class="signature">fold(x, i, f)</span>
     
     
     
       <div class="specs">
         
-          <pre>t() :: integer</pre>
+          <pre>fold(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>, term, (<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>, term -> term)) :: term</pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>An Element (just an Integer)</p>
+    <p>A fold such that successive elements are in ascending order</p>
+
+  </section>
+</div>
+<div class="detail" id="heapify/1">
+  
+  
+  <div class="detail-header">
+    <a href="#heapify/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">heapify(x)</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>heapify([<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>]) :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>A heap with the same elements as the list in question</p>
+
+  </section>
+</div>
+<div class="detail" id="listify/1">
+  
+  
+  <div class="detail-header">
+    <a href="#listify/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">listify(x)</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>listify(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: [<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>]</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>A list in ascending order (w/ all the same elements as the heap)</p>
 
   </section>
 </div>
 
-          </div>
         </section>
-      
-
       
 
       

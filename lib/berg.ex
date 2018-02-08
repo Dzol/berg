@@ -1,13 +1,19 @@
 defmodule Berg do
+  @moduledoc """
+  A Minimum Heap for Integers
+
+  ![The Tatra Range](./tatra.jpg)
+
+  <p>
+  <cite>The Tatra Range:</cite> TripAdvisor
+  </p>
+
+  Higher-order functions and converters live in this module.
+  """
+
   defmodule Heap do
     @moduledoc """
-    A Minimum Heap for Integers
-
-    ![The Tatra Range](./tatra.jpg)
-
-    <p>
-    <cite>The Tatra Range:</cite> TripAdvisor
-    </p>
+    Heap operations live in this module
     """
 
     defmodule Element do
@@ -42,9 +48,9 @@ defmodule Berg do
 
     ## Example
 
-    iex> alias Berg.Heap
-    iex> Heap.zero?(Heap.zero())
-    true
+        iex> alias Berg.Heap
+        iex> Heap.zero?(Heap.zero())
+        true
 
     """
     @spec zero?(__MODULE__.t) :: boolean
@@ -57,9 +63,9 @@ defmodule Berg do
 
     ## Example
 
-    iex> alias Berg.Heap
-    iex> Heap.zero?(Heap.unary(4))
-    false
+        iex> alias Berg.Heap
+        iex> Heap.zero?(Heap.unary(4))
+        false
 
     """
     @spec unary(Element.t) :: __MODULE__.t
@@ -72,12 +78,12 @@ defmodule Berg do
 
     ## Example
 
-    iex> alias Berg
-    iex> alias Berg.Heap
-    iex> l = [42, 16, 8, 4, 15, 23]
-    iex> h = Berg.heapify(l)
-    iex> Heap.root(h)
-    4
+        iex> alias Berg
+        iex> alias Berg.Heap
+        iex> l = [42, 16, 8, 4, 15, 23]
+        iex> h = Berg.heapify(l)
+        iex> Heap.root(h)
+        4
 
     """
     @spec root(__MODULE__.t) :: Element.t
@@ -91,13 +97,13 @@ defmodule Berg do
 
     ## Example
 
-    iex> alias Berg
-    iex> alias Berg.Heap
-    iex> l = [16, 8, 15, 23]
-    iex> h = Berg.heapify(l)
-    iex> i = h |> Heap.insert(4) |> Heap.insert(42)
-    iex> Heap.root(i)
-    4
+        iex> alias Berg
+        iex> alias Berg.Heap
+        iex> l = [16, 8, 15, 23]
+        iex> h = Berg.heapify(l)
+        iex> i = h |> Heap.insert(4) |> Heap.insert(42)
+        iex> Heap.root(i)
+        4
 
     """
     @spec insert(__MODULE__.t, Element.t) :: __MODULE__.t
@@ -110,13 +116,13 @@ defmodule Berg do
 
     ## Example
 
-    iex> alias Berg
-    iex> alias Berg.Heap
-    iex> l = [42, 16, 8, 4, 15, 23]
-    iex> h = Berg.heapify(l)
-    iex> t = Heap.trunk(h)
-    iex> Berg.listify(t)
-    [8, 15, 16, 23, 42]
+        iex> alias Berg
+        iex> alias Berg.Heap
+        iex> l = [42, 16, 8, 4, 15, 23]
+        iex> h = Berg.heapify(l)
+        iex> t = Heap.trunk(h)
+        iex> Berg.listify(t)
+        [8, 15, 16, 23, 42]
 
     """
     @spec trunk(__MODULE__.t) :: __MODULE__.t
@@ -130,15 +136,15 @@ defmodule Berg do
 
     ## Example
 
-    iex> alias Berg
-    iex> alias Berg.Heap
-    iex> l = [42, 16, 8, 4, 15, 23]
-    iex> h = Berg.heapify(l)
-    iex> {t, e} = Heap.extract(h)
-    iex> Berg.listify(t)
-    [8, 15, 16, 23, 42]
-    iex> e
-    4
+        iex> alias Berg
+        iex> alias Berg.Heap
+        iex> l = [42, 16, 8, 4, 15, 23]
+        iex> h = Berg.heapify(l)
+        iex> {t, e} = Heap.extract(h)
+        iex> Berg.listify(t)
+        [8, 15, 16, 23, 42]
+        iex> e
+        4
 
     """
     @spec extract(__MODULE__.t) :: {__MODULE__.t, Element.t}

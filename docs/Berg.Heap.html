@@ -8,7 +8,7 @@
     <title>Berg.Heap – Berg v1.1.0</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
-    <script src="dist/sidebar_items-ab8474c90b.js"></script>
+    <script src="dist/sidebar_items-eb812805f8.js"></script>
     
   </head>
   <body data-type="modules">
@@ -22,7 +22,7 @@
 <section class="sidebar">
 
   
-  <a href="Berg.Heap.html" class="sidebar-projectLink">
+  <a href="Berg.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
         Berg
@@ -71,11 +71,8 @@
 
       
         <section id="moduledoc">
-          <p>A Minimum Heap for Integers</p>
-<p><img src="./tatra.jpg" alt="The Tatra Range"/></p>
-<p>
-  <cite>The Tatra Range:</cite> TripAdvisor
-</p>
+          <p>Heap operations live in this module</p>
+
         </section>
       
 
@@ -123,38 +120,11 @@ if it were in the heap</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#fold/3">fold(x, i, f)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>A fold such that successive elements are in ascending order</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#heapify/1">heapify(x)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>A heap with the same elements as the list in question</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
     <a href="#insert/2">insert(x, y)</a>
   </div>
   
     <div class="summary-synopsis"><p>A heap whose smallest element is the minimum of the element in
 question and the smallest element of the heap in question</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#listify/1">listify(x)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>A list in ascending order (w/ all the same elements as the heap)</p>
 </div>
   
 </div>
@@ -287,62 +257,15 @@ if it were in the heap</p>
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+<pre><code class="iex elixir">iex&gt; alias Berg
+iex&gt; alias Berg.Heap
 iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Heap.heapify(l)
+iex&gt; h = Berg.heapify(l)
 iex&gt; {t, e} = Heap.extract(h)
-iex&gt; Heap.listify(t)
+iex&gt; Berg.listify(t)
 [8, 15, 16, 23, 42]
 iex&gt; e
 4</code></pre>
-
-  </section>
-</div>
-<div class="detail" id="fold/3">
-  
-  
-  <div class="detail-header">
-    <a href="#fold/3" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">fold(x, i, f)</span>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>fold(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>, term, (<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>, term -> term)) :: term</pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>A fold such that successive elements are in ascending order</p>
-
-  </section>
-</div>
-<div class="detail" id="heapify/1">
-  
-  
-  <div class="detail-header">
-    <a href="#heapify/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">heapify(x)</span>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>heapify([<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>]) :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>A heap with the same elements as the list in question</p>
 
   </section>
 </div>
@@ -373,36 +296,13 @@ question and the smallest element of the heap in question</p>
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+<pre><code class="iex elixir">iex&gt; alias Berg
+iex&gt; alias Berg.Heap
 iex&gt; l = [16, 8, 15, 23]
-iex&gt; h = Heap.heapify(l)
+iex&gt; h = Berg.heapify(l)
 iex&gt; i = h |&gt; Heap.insert(4) |&gt; Heap.insert(42)
 iex&gt; Heap.root(i)
 4</code></pre>
-
-  </section>
-</div>
-<div class="detail" id="listify/1">
-  
-  
-  <div class="detail-header">
-    <a href="#listify/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">listify(x)</span>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>listify(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: [<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>]</pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>A list in ascending order (w/ all the same elements as the heap)</p>
 
   </section>
 </div>
@@ -432,9 +332,10 @@ iex&gt; Heap.root(i)
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+<pre><code class="iex elixir">iex&gt; alias Berg
+iex&gt; alias Berg.Heap
 iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Heap.heapify(l)
+iex&gt; h = Berg.heapify(l)
 iex&gt; Heap.root(h)
 4</code></pre>
 
@@ -466,11 +367,12 @@ iex&gt; Heap.root(h)
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+<pre><code class="iex elixir">iex&gt; alias Berg
+iex&gt; alias Berg.Heap
 iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Heap.heapify(l)
+iex&gt; h = Berg.heapify(l)
 iex&gt; t = Heap.trunk(h)
-iex&gt; Heap.listify(t)
+iex&gt; Berg.listify(t)
 [8, 15, 16, 23, 42]</code></pre>
 
   </section>
