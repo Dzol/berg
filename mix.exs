@@ -48,7 +48,7 @@ defmodule Berg.Mixfile do
 
   defp documentation do
     [output: "docs",
-     main: "Berg"
+     main: "Berg.Heap"
     ]
   end
 

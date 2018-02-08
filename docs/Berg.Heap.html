@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.3">
-    <title>Berg – Berg v1.1.0</title>
+    <title>Berg.Heap – Berg v1.1.0</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
-    <script src="dist/sidebar_items-750b49e329.js"></script>
+    <script src="dist/sidebar_items-ab8474c90b.js"></script>
     
   </head>
   <body data-type="modules">
@@ -22,7 +22,7 @@
 <section class="sidebar">
 
   
-  <a href="Berg.html" class="sidebar-projectLink">
+  <a href="Berg.Heap.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
         Berg
@@ -65,7 +65,7 @@
 
       <h1>
         <small class="visible-xs">Berg v1.1.0</small>
-        Berg
+        Berg.Heap
         
       </h1>
 
@@ -274,7 +274,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>extract(<a href="Berg.html#t:t/0">Berg.t</a>) :: {<a href="Berg.html#t:t/0">Berg.t</a>, <a href="Berg.Element.html#t:t/0">Berg.Element.t</a>}</pre>
+          <pre>extract(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: {<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>, <a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>}</pre>
         
       </div>
     
@@ -287,10 +287,11 @@ if it were in the heap</p>
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Berg.heapify(l)
-iex&gt; {t, e} = Berg.extract(h)
-iex&gt; Berg.listify(t)
+<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+iex&gt; l = [42, 16, 8, 4, 15, 23]
+iex&gt; h = Heap.heapify(l)
+iex&gt; {t, e} = Heap.extract(h)
+iex&gt; Heap.listify(t)
 [8, 15, 16, 23, 42]
 iex&gt; e
 4</code></pre>
@@ -311,7 +312,7 @@ iex&gt; e
     
       <div class="specs">
         
-          <pre>fold(<a href="Berg.html#t:t/0">Berg.t</a>, term, (<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>, term -> term)) :: term</pre>
+          <pre>fold(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>, term, (<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>, term -> term)) :: term</pre>
         
       </div>
     
@@ -335,7 +336,7 @@ iex&gt; e
     
       <div class="specs">
         
-          <pre>heapify([<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>]) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>heapify([<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>]) :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
         
       </div>
     
@@ -359,7 +360,7 @@ iex&gt; e
     
       <div class="specs">
         
-          <pre>insert(<a href="Berg.html#t:t/0">Berg.t</a>, <a href="Berg.Element.html#t:t/0">Berg.Element.t</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>insert(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>, <a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>) :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
         
       </div>
     
@@ -372,10 +373,11 @@ question and the smallest element of the heap in question</p>
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; l = [16, 8, 15, 23]
-iex&gt; h = Berg.heapify(l)
-iex&gt; i = h |&gt; Berg.insert(4) |&gt; Berg.insert(42)
-iex&gt; Berg.root(i)
+<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+iex&gt; l = [16, 8, 15, 23]
+iex&gt; h = Heap.heapify(l)
+iex&gt; i = h |&gt; Heap.insert(4) |&gt; Heap.insert(42)
+iex&gt; Heap.root(i)
 4</code></pre>
 
   </section>
@@ -394,7 +396,7 @@ iex&gt; Berg.root(i)
     
       <div class="specs">
         
-          <pre>listify(<a href="Berg.html#t:t/0">Berg.t</a>) :: [<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>]</pre>
+          <pre>listify(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: [<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>]</pre>
         
       </div>
     
@@ -418,7 +420,7 @@ iex&gt; Berg.root(i)
     
       <div class="specs">
         
-          <pre>root(<a href="Berg.html#t:t/0">Berg.t</a>) :: <a href="Berg.Element.html#t:t/0">Berg.Element.t</a></pre>
+          <pre>root(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: <a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a></pre>
         
       </div>
     
@@ -430,9 +432,10 @@ iex&gt; Berg.root(i)
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Berg.heapify(l)
-iex&gt; Berg.root(h)
+<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+iex&gt; l = [42, 16, 8, 4, 15, 23]
+iex&gt; h = Heap.heapify(l)
+iex&gt; Heap.root(h)
 4</code></pre>
 
   </section>
@@ -451,7 +454,7 @@ iex&gt; Berg.root(h)
     
       <div class="specs">
         
-          <pre>trunk(<a href="Berg.html#t:t/0">Berg.t</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>trunk(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
         
       </div>
     
@@ -463,10 +466,11 @@ iex&gt; Berg.root(h)
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Berg.heapify(l)
-iex&gt; t = Berg.trunk(h)
-iex&gt; Berg.listify(t)
+<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+iex&gt; l = [42, 16, 8, 4, 15, 23]
+iex&gt; h = Heap.heapify(l)
+iex&gt; t = Heap.trunk(h)
+iex&gt; Heap.listify(t)
 [8, 15, 16, 23, 42]</code></pre>
 
   </section>
@@ -485,7 +489,7 @@ iex&gt; Berg.listify(t)
     
       <div class="specs">
         
-          <pre>unary(<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>unary(<a href="Berg.Heap.Element.html#t:t/0">Berg.Heap.Element.t</a>) :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
         
       </div>
     
@@ -497,7 +501,8 @@ iex&gt; Berg.listify(t)
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; Berg.zero?(Berg.unary(4))
+<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+iex&gt; Heap.zero?(Heap.unary(4))
 false</code></pre>
 
   </section>
@@ -516,7 +521,7 @@ false</code></pre>
     
       <div class="specs">
         
-          <pre>zero() :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>zero() :: <a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a></pre>
         
       </div>
     
@@ -540,7 +545,7 @@ false</code></pre>
     
       <div class="specs">
         
-          <pre>zero?(<a href="Berg.html#t:t/0">Berg.t</a>) :: boolean</pre>
+          <pre>zero?(<a href="Berg.Heap.html#t:t/0">Berg.Heap.t</a>) :: boolean</pre>
         
       </div>
     
@@ -552,7 +557,8 @@ false</code></pre>
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; Berg.zero?(Berg.zero())
+<pre><code class="iex elixir">iex&gt; alias Berg.Heap
+iex&gt; Heap.zero?(Heap.zero())
 true</code></pre>
 
   </section>
