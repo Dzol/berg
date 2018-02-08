@@ -155,6 +155,10 @@ defmodule Berg do
   @spec listify(__MODULE__.t) :: list(Element.t)
   def listify(x), do: fold(x, [], & [&1 | &2])
 
+  @doc """
+  A fold such that successive elements are in ascending order
+  """
+  @spec fold(__MODULE__.t, term, (Element.t, term -> term)) :: term
   def fold(x, i, f) do ## Don't leak internals
     if zero?(x) do
       Enum.reverse(i)
