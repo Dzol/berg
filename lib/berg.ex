@@ -10,7 +10,9 @@ defmodule Berg do
   """
 
   defmodule Element do
-    @moduledoc false
+    @moduledoc """
+    Heap element dialyzer declaration
+    """
 
     @typedoc """
     An Element (just an Integer)

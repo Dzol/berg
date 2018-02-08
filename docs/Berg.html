@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.16.1">
+    <meta name="generator" content="ExDoc v0.16.3">
     <title>Berg – Berg v1.1.0</title>
-    <link rel="stylesheet" href="dist/app-4ecae1abb8.css" />
+    <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
-    <script src="dist/sidebar_items-5bc5c9e660.js"></script>
+    <script src="dist/sidebar_items-750b49e329.js"></script>
+    
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -33,10 +34,12 @@
     
   </a>
 
-  <div class="sidebar-search">
-    <span class="icon-search" aria-hidden="true"></span>
-    <input type="text" class="sidebar-searchInput" placeholder="search" aria-label="Search" autocomplete="off" />
-  </div>
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
@@ -92,19 +95,10 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#t:element/0">element()</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>An Element (just an Integer)</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
     <a href="#t:t/0">t()</a>
   </div>
   
-    <div class="summary-synopsis"><p>A Minimum Heap</p>
+    <div class="summary-synopsis"><p>A Minimum Heap (of Integers)</p>
 </div>
   
 </div>
@@ -125,6 +119,12 @@
     <div class="summary-synopsis"><p>A heap alongside an element where that element would be the smallest
 if it were in the heap</p>
 </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#fold/3">fold(x, i, f)</a>
+  </div>
   
 </div>
 <div class="summary-row">
@@ -219,30 +219,8 @@ question and the smallest element of the heap in question</p>
             Types
           </h1>
           <div class="types-list">
-            <div class="detail" id="t:element/0">
+            <div class="detail" id="t:t/0">
   
-  <div class="detail-header">
-    <a href="#t:element/0" class="detail-link" title="Link to this type">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this type</span>
-    </a>
-    <span class="signature">element()</span>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>element() :: integer</pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>An Element (just an Integer)</p>
-
-  </section>
-</div>
-<div class="detail" id="t:t/0">
   
   <div class="detail-header">
     <a href="#t:t/0" class="detail-link" title="Link to this opaque">
@@ -261,7 +239,7 @@ question and the smallest element of the heap in question</p>
     
   </div>
   <section class="docstring">
-    <p>A Minimum Heap</p>
+    <p>A Minimum Heap (of Integers)</p>
 
   </section>
 </div>
@@ -281,6 +259,7 @@ question and the smallest element of the heap in question</p>
           </h1>
           <div class="detail" id="extract/1">
   
+  
   <div class="detail-header">
     <a href="#extract/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
@@ -292,7 +271,7 @@ question and the smallest element of the heap in question</p>
     
       <div class="specs">
         
-          <pre>extract(<a href="Berg.html#t:t/0">Berg.t</a>) :: {<a href="Berg.html#t:t/0">Berg.t</a>, <a href="#t:element/0">element</a>}</pre>
+          <pre>extract(<a href="Berg.html#t:t/0">Berg.t</a>) :: {<a href="Berg.html#t:t/0">Berg.t</a>, <a href="Berg.Element.html#t:t/0">Berg.Element.t</a>}</pre>
         
       </div>
     
@@ -306,16 +285,34 @@ if it were in the heap</p>
 </h2>
 
 <pre><code class="iex elixir">iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Berg.heapify l
-iex&gt; {t, e} = Berg.extract h
-iex&gt; Berg.listify t
+iex&gt; h = Berg.heapify(l)
+iex&gt; {t, e} = Berg.extract(h)
+iex&gt; Berg.listify(t)
 [8, 15, 16, 23, 42]
 iex&gt; e
 4</code></pre>
 
   </section>
 </div>
+<div class="detail" id="fold/3">
+  
+  
+  <div class="detail-header">
+    <a href="#fold/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">fold(x, i, f)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
 <div class="detail" id="heapify/1">
+  
   
   <div class="detail-header">
     <a href="#heapify/1" class="detail-link" title="Link to this function">
@@ -328,7 +325,7 @@ iex&gt; e
     
       <div class="specs">
         
-          <pre>heapify([integer]) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>heapify([<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>]) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -339,6 +336,7 @@ iex&gt; e
   </section>
 </div>
 <div class="detail" id="insert/2">
+  
   
   <div class="detail-header">
     <a href="#insert/2" class="detail-link" title="Link to this function">
@@ -351,7 +349,7 @@ iex&gt; e
     
       <div class="specs">
         
-          <pre>insert(<a href="Berg.html#t:t/0">Berg.t</a>, <a href="#t:element/0">element</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>insert(<a href="Berg.html#t:t/0">Berg.t</a>, <a href="Berg.Element.html#t:t/0">Berg.Element.t</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -365,7 +363,7 @@ question and the smallest element of the heap in question</p>
 </h2>
 
 <pre><code class="iex elixir">iex&gt; l = [16, 8, 15, 23]
-iex&gt; h = Berg.heapify l
+iex&gt; h = Berg.heapify(l)
 iex&gt; i = h |&gt; Berg.insert(4) |&gt; Berg.insert(42)
 iex&gt; Berg.root(i)
 4</code></pre>
@@ -373,6 +371,7 @@ iex&gt; Berg.root(i)
   </section>
 </div>
 <div class="detail" id="listify/1">
+  
   
   <div class="detail-header">
     <a href="#listify/1" class="detail-link" title="Link to this function">
@@ -385,7 +384,7 @@ iex&gt; Berg.root(i)
     
       <div class="specs">
         
-          <pre>listify(<a href="Berg.html#t:t/0">Berg.t</a>) :: [integer]</pre>
+          <pre>listify(<a href="Berg.html#t:t/0">Berg.t</a>) :: [<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>]</pre>
         
       </div>
     
@@ -396,6 +395,7 @@ iex&gt; Berg.root(i)
   </section>
 </div>
 <div class="detail" id="root/1">
+  
   
   <div class="detail-header">
     <a href="#root/1" class="detail-link" title="Link to this function">
@@ -408,7 +408,7 @@ iex&gt; Berg.root(i)
     
       <div class="specs">
         
-          <pre>root(<a href="Berg.html#t:t/0">Berg.t</a>) :: <a href="#t:element/0">element</a></pre>
+          <pre>root(<a href="Berg.html#t:t/0">Berg.t</a>) :: <a href="Berg.Element.html#t:t/0">Berg.Element.t</a></pre>
         
       </div>
     
@@ -421,13 +421,14 @@ iex&gt; Berg.root(i)
 </h2>
 
 <pre><code class="iex elixir">iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Berg.heapify l
-iex&gt; Berg.root h
+iex&gt; h = Berg.heapify(l)
+iex&gt; Berg.root(h)
 4</code></pre>
 
   </section>
 </div>
 <div class="detail" id="trunk/1">
+  
   
   <div class="detail-header">
     <a href="#trunk/1" class="detail-link" title="Link to this function">
@@ -438,6 +439,12 @@ iex&gt; Berg.root h
     
     
     
+      <div class="specs">
+        
+          <pre>trunk(<a href="Berg.html#t:t/0">Berg.t</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+        
+      </div>
+    
   </div>
   <section class="docstring">
     <p>The heap in question w/o the smallest element</p>
@@ -447,14 +454,15 @@ iex&gt; Berg.root h
 </h2>
 
 <pre><code class="iex elixir">iex&gt; l = [42, 16, 8, 4, 15, 23]
-iex&gt; h = Berg.heapify l
-iex&gt; t = Berg.trunk h
+iex&gt; h = Berg.heapify(l)
+iex&gt; t = Berg.trunk(h)
 iex&gt; Berg.listify(t)
 [8, 15, 16, 23, 42]</code></pre>
 
   </section>
 </div>
 <div class="detail" id="unary/1">
+  
   
   <div class="detail-header">
     <a href="#unary/1" class="detail-link" title="Link to this function">
@@ -467,7 +475,7 @@ iex&gt; Berg.listify(t)
     
       <div class="specs">
         
-          <pre>unary(<a href="#t:element/0">element</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
+          <pre>unary(<a href="Berg.Element.html#t:t/0">Berg.Element.t</a>) :: <a href="Berg.html#t:t/0">Berg.t</a></pre>
         
       </div>
     
@@ -479,12 +487,13 @@ iex&gt; Berg.listify(t)
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; Berg.zero? Berg.unary(4)
+<pre><code class="iex elixir">iex&gt; Berg.zero?(Berg.unary(4))
 false</code></pre>
 
   </section>
 </div>
 <div class="detail" id="zero/0">
+  
   
   <div class="detail-header">
     <a href="#zero/0" class="detail-link" title="Link to this function">
@@ -509,6 +518,7 @@ false</code></pre>
 </div>
 <div class="detail" id="zero?/1">
   
+  
   <div class="detail-header">
     <a href="#zero?/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
@@ -532,7 +542,7 @@ false</code></pre>
   Example
 </h2>
 
-<pre><code class="iex elixir">iex&gt; Berg.zero? Berg.zero()
+<pre><code class="iex elixir">iex&gt; Berg.zero?(Berg.zero())
 true</code></pre>
 
   </section>
@@ -546,7 +556,7 @@ true</code></pre>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.1),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.3),
           </span>
           <span class="line">
             designed by
@@ -559,7 +569,8 @@ true</code></pre>
   </div>
 </section>
 </div>
-  <script src="dist/app-126b5f0e90.js"></script>
+  <script src="dist/app-da04b39d0c.js"></script>
+  
   </body>
 </html>
 
