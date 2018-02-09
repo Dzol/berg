@@ -30,6 +30,22 @@ defmodule Berg.HeapTest do
     assert Heap.zero?(z) == true
   end
 
+  defp double(x) do
+    x * 2
+  end
+
+  test "map/2" do
+    ## given
+    x = [4,8,15,16,23,42]
+    |> Enum.shuffle()
+    |> Berg.heapify()
+    ## when
+    |> Berg.map(&double/1)
+    |> Berg.listify()
+    ## then
+    assert x == [8,16,30,32,46,84]
+  end
+
   test "insert string element failure" do
     alias Berg.Heap
 

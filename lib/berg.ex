@@ -194,4 +194,15 @@ defmodule Berg do
       fold(trunk(x), apply(f, [root(x), i]), f)
     end
   end
+
+  @doc """
+  A (simple) map _from_ a heap _to_ a heap
+  """
+  @spec map(__MODULE__.Heap.t, (Heap.Element.t -> Heap.Element.t)) :: Heap.t
+  def map(x, f) do
+    g = fn (e, a) ->
+      Heap.insert(a, apply(f, [e]))
+    end
+    fold(x, Heap.zero(), g)
+  end
 end
