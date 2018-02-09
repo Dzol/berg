@@ -175,7 +175,11 @@ defmodule Berg do
   A list in ascending order (w/ all the same elements as the heap)
   """
   @spec listify(__MODULE__.Heap.t) :: list(Heap.Element.t)
-  def listify(x), do: fold(x, [], & [&1 | &2])
+  def listify(x) do
+    x
+    |> fold([], & [&1 | &2])
+    |> Enum.reverse()
+  end
 
   @doc """
   A fold such that successive elements are in ascending order
@@ -185,7 +189,7 @@ defmodule Berg do
     import Berg.Heap, only: [zero?: 1, trunk: 1, root: 1]
 
     if zero?(x) do
-      Enum.reverse(i)
+      i
     else
       fold(trunk(x), apply(f, [root(x), i]), f)
     end
