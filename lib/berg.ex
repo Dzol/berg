@@ -8,12 +8,12 @@ defmodule Berg do
   <cite>The Tatra Range:</cite> TripAdvisor
   </p>
 
-  Higher-order functions and converters live in this module.
+  Find higher-order and conversion functions in this module.
   """
 
   defmodule Heap do
     @moduledoc """
-    Heap operations live in this module
+    Find primitives in this module
     """
 
     defmodule Element do
