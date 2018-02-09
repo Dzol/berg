@@ -156,13 +156,13 @@ defmodule Berg do
   @doc """
   A heap with the same elements as the list in question
   """
-  @spec heapify(list(Heap.Element.t)) :: __MODULE__.Heap.t
+  @spec heapify(list(Heap.Element.t)) :: Heap.t
   def heapify(x) do
     import Heap, only: [zero: 0]
     heapify(x, zero())
   end
 
-  @spec heapify(list(Heap.Element.t), __MODULE__.Heap.t) :: __MODULE__.Heap.t
+  @spec heapify(list(Heap.Element.t), Heap.t) :: Heap.t
   defp heapify([], z) do
     z
   end
@@ -174,7 +174,7 @@ defmodule Berg do
   @doc """
   A list in ascending order (w/ all the same elements as the heap)
   """
-  @spec listify(__MODULE__.Heap.t) :: list(Heap.Element.t)
+  @spec listify(Heap.t) :: list(Heap.Element.t)
   def listify(x) do
     x
     |> fold([], & [&1 | &2])
@@ -184,7 +184,7 @@ defmodule Berg do
   @doc """
   A fold such that successive elements are in ascending order
   """
-  @spec fold(__MODULE__.Heap.t, term, (Heap.Element.t, term -> term)) :: term
+  @spec fold(Heap.t, term, (Heap.Element.t, term -> term)) :: term
   def fold(x, i, f) do ## Don't leak internals
     import Berg.Heap, only: [zero?: 1, trunk: 1, root: 1]
 
@@ -198,7 +198,7 @@ defmodule Berg do
   @doc """
   A (simple) map _from_ a heap _to_ a heap
   """
-  @spec map(__MODULE__.Heap.t, (Heap.Element.t -> Heap.Element.t)) :: Heap.t
+  @spec map(Heap.t, (Heap.Element.t -> Heap.Element.t)) :: Heap.t
   def map(x, f) do
     g = fn (e, a) ->
       Heap.insert(a, apply(f, [e]))
