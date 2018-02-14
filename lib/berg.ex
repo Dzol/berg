@@ -19,16 +19,13 @@ defmodule Berg do
   @spec heapify(list(Heap.Element.t)) :: Heap.t
   def heapify(x) do
     import Heap, only: [zero: 0]
-    heapify(x, zero())
+    Enum.reduce(x, zero(), &heapify/2)
   end
 
-  @spec heapify(list(Heap.Element.t), Heap.t) :: Heap.t
-  defp heapify([], z) do
-    z
-  end
-  defp heapify([x|y], z) do
+  @spec heapify(Heap.Element.t, Heap.t) :: Heap.t
+  def heapify(e, h) do
     import Berg.Heap, only: [insert: 2]
-    heapify(y, insert(z, x))
+    insert(h, e)
   end
 
   @doc """
