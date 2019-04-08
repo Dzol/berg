@@ -19,9 +19,9 @@
 %% children (heaps). Invarient: the integer value of any heap is
 %% smaller than those of its children. We really want something like
 %% `heap of integer :: {value of integer, [] | [heap of integer]}',
-%% but since Erlang's Dialyzer doesn't permit inductive structures,
-%% let's take the symbol `infinity' to be a value outside of the
-%% permitable integer values.
+%% but since Erlang's Dialyzer doesn't have parametric types, let's
+%% take the symbol `infinity' to be a value outside of the permitable
+%% integer values.
 -type heap() :: {Value :: infinity | integer(), Children :: list()}.
 
 
