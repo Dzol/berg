@@ -16,13 +16,9 @@
 -export([extract/1]).
 
 %% Our heap is a structure with an integer value and a list of
-%% children (heaps). Invarient: the integer value of any heap is
-%% smaller than those of its children. We really want something like
-%% `heap of integer :: {value of integer, [] | [heap of integer]}',
-%% but since Erlang's Dialyzer doesn't have parametric types, let's
-%% take the symbol `infinity' to be a value outside of the permitable
-%% integer values.
--type heap() :: {Value :: infinity | integer(), Children :: list()}.
+%% children (heaps). The integer value of any heap is smaller than
+%% those of its children.
+-type heap() :: [] | {Value :: integer(), Children :: list(heap())}.
 
 
 %% -------------------------------------------------------------------
@@ -31,7 +27,7 @@
 
 %% @doc The zero value of a heap.
 -spec zero() -> Z :: heap().
-zero()       -> {infinity, []}.
+zero()       -> [].
 
 %% @doc Return a unary heap with the given value.
 -spec unary(Value :: integer()) -> U :: heap().
@@ -42,7 +38,7 @@ unary(Value)                    -> {Value, []}.
 %% it is a zero heap. False if the heap has cardinality greater than
 %% or equal to one.
 -spec zero(H :: heap())                     -> boolean().
-zero({infinity, []})                        -> true;
+zero([])                                    -> true;
 zero({V, C}) when is_integer(V), is_list(C) -> false.
 
 %% @doc The heap with the given integer value inserted onto the given
@@ -74,7 +70,8 @@ pair([H])        -> H;
 pair([I,J|Rest]) -> merge(merge(I, J), pair(Rest)).
 
 -spec merge(heap(), heap()) -> heap().
-merge({infinity, []}, H)              -> H;
-merge(H, {infinity, []})              -> H;
-merge({X, U}, {Y, _} = H) when X < Y  -> {X, [H|U]};
-merge({_, _} = H, {Y, V})             -> {Y, [H|V]}.
+merge([], H)              -> H;
+merge(H, [])              -> H;
+merge({X, U}, {Y, _} = H)
+  when X < Y              -> {X, [H|U]};
+merge({_, _} = H, {Y, V}) -> {Y, [H|V]}.
