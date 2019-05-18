@@ -70,8 +70,22 @@ pair([H])        -> H;
 pair([I,J|Rest]) -> merge(merge(I, J), pair(Rest)).
 
 -spec merge(heap(), heap()) -> heap().
-merge([], H)              -> H;
-merge(H, [])              -> H;
-merge({X, U}, {Y, _} = H)
-  when X < Y              -> {X, [H|U]};
-merge({_, _} = H, {Y, V}) -> {Y, [H|V]}.
+merge([], I)                -> I;
+merge(H, [])                -> H;
+merge(H, I)                 ->
+    C = fun (X, Y) -> X - Y end,
+    case C(value(H), value(I)) < 0 of
+	true ->
+	    heap(H, I);
+	false ->
+	    heap(I, H)
+    end.
+
+heap(X, Y) ->
+    {value(X), [Y|children(X)]}.
+
+value({V, _}) ->
+    V.
+
+children({_, C}) ->
+    C.
