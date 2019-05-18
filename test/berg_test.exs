@@ -24,8 +24,8 @@ defmodule Berg.HeapTest do
 
     x = Heap.zero() |> Heap.insert(0) |> Heap.insert(0)
 
-    assert {y, 0} = Heap.extract(x)
-    assert {z, 0} = Heap.extract(y)
+    assert %{heap: y, element: 0} = Heap.extract(x)
+    assert %{heap: z, element: 0} = Heap.extract(y)
 
     assert Heap.zero?(z) == true
   end

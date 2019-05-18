@@ -114,7 +114,7 @@ defmodule Berg.Heap do
   """
   @spec trunk(__MODULE__.t) :: __MODULE__.t
   def trunk(x) do
-    elem(extract(x), 0)
+    Map.get(extract(x), :heap)
   end
 
   @doc """
@@ -127,14 +127,14 @@ defmodule Berg.Heap do
       iex> alias Berg.Heap
       iex> l = [42, 16, 8, 4, 15, 23]
       iex> h = Berg.heapify(l)
-      iex> {t, e} = Heap.extract(h)
-      iex> Berg.listify(t)
+      iex> x = Heap.extract(h)
+      iex> Berg.listify(x.heap)
       [8, 15, 16, 23, 42]
-      iex> e
+      iex> x.element
       4
 
   """
-  @spec extract(__MODULE__.t) :: {__MODULE__.t, Element.t}
+  @spec extract(__MODULE__.t) :: %{heap: __MODULE__.t, element: any()}
   def extract(x) do
     :heap.extract(x)
   end

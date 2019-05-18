@@ -55,9 +55,9 @@ peak({Value, C})
 %% @doc Extract the smallest value off of the given heap.
 -spec extract(H :: heap()) -> {I :: heap(), Root :: integer()}.
 extract({Value, []})
-  when is_integer(Value)   -> {zero(), Value};
+  when is_integer(Value)   -> #{heap => zero(), element => Value};
 extract({Value, Children})
-  when is_integer(Value), is_list(Children) -> {pair(Children), Value}.
+  when is_integer(Value), is_list(Children) -> #{heap => pair(Children), element => Value}.
 
 
 %% -------------------------------------------------------------------
