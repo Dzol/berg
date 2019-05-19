@@ -53,7 +53,7 @@ peak({Value, C})
   when is_integer(Value), is_list(C) -> Value.
 
 %% @doc Extract the smallest value off of the given heap.
--spec extract(H :: heap()) -> {I :: heap(), Root :: integer()}.
+-spec extract(H :: heap()) -> #{heap => heap(), element => any()}.
 extract({Value, []})
   when is_integer(Value)   -> #{heap => zero(), element => Value};
 extract({Value, Children})

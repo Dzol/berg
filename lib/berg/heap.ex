@@ -17,9 +17,9 @@ defmodule Berg.Heap do
   @typedoc """
   A Minimum Heap (of Integers)
   """
-  @opaque t :: {
-    value    :: :infinity | Element.t,
-    children :: list
+  @opaque t :: [] | {
+    value    :: Element.t,
+    children :: list(t)
   }
 
   @doc """
